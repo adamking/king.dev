@@ -7,12 +7,26 @@ import logo from "../images/king.svg";
 
 <MainLayout title="King Development">
 	<div class="grid place-items-center h-screen content-center">
-		<Button
-			><Image
+		<Button>
+			<Image
 				src={logo}
 				alt="King Development Logo"
-				class="w-32 h-32"
-			/></Button
-		>
+				class="w-32 h-32 logo-svg"
+			/>
+		</Button>
 	</div>
 </MainLayout>
+
+<script>
+	import anime from "animejs";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		anime({
+			targets: ".logo-svg",
+			scale: [0.8, 1.2],
+			easing: "easeInOutQuad",
+			duration: 2000,
+			strokeDashoffset: [anime.setDashoffset, 0]
+		});
+	});
+</script>
