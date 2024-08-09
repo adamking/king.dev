@@ -1,13 +1,18 @@
 ---
 const { title, description, keywords, url, image_url } = Astro.props;
-const isProduction = import.meta.env.PROD;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" content="#000000" />
 
     <!-- SEO Meta Tags -->
     <title>{title}</title>
@@ -37,30 +42,11 @@ const isProduction = import.meta.env.PROD;
       <slot />
     </main>
     <footer class="p-4 bg-white bg-opacity-5">
-      <p class="text-center text-white text-opacity-50 text-xs tracking-widest font-extralight">
+      <p
+        class="text-center text-white text-opacity-50 text-xs tracking-widest font-extralight"
+      >
         © {new Date().getFullYear()} KING DEVELOPMENT LLC
       </p>
     </footer>
   </body>
 </html>
-
-{isProduction && (
-  <script>
-    import { initializeApp } from "firebase/app";
-    import { getAnalytics } from "firebase/analytics";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyBT_X1pg8MGQ1YuGUnqXbShhTnJjzZ_2HU",
-      authDomain: "king-dev-e58b6.firebaseapp.com",
-      projectId: "king-dev-e58b6",
-      storageBucket: "king-dev-e58b6.appspot.com",
-      messagingSenderId: "539702132262",
-      appId: "1:539702132262:web:ea89e1a879da5037f0f0e7",
-      measurementId: "G-BGT018J52R",
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-)}
