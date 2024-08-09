@@ -1,10 +1,18 @@
 ---
 import Button from "../components/Button.astro";
 import MainLayout from "../layouts/main.astro";
+import { Image } from "astro:assets";
+import logo from "../images/king.svg";
 ---
 
 <MainLayout title="King Development">
 	<div class="grid place-items-center h-screen content-center">
-		<Button>Click Me</Button>
+		<Button
+			><Image
+				src={logo}
+				alt="King Development Logo"
+				class="w-32 h-32"
+			/></Button
+		>
 	</div>
 </MainLayout>
