@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <div class="animation-wrapper">
@@ -93,7 +92,7 @@
 </style>
 
 <script>
-  import anime from "animejs/lib/anime.es.js";
+  import anime from "animejs";
 
   const sphereEl = document.querySelector(".sphere-animation") as HTMLElement;
   const spherePathEls =
@@ -102,7 +101,7 @@
 
   anime({
     begin(): void {
-      spherePathEls.forEach((pathEl, i) => {
+      spherePathEls.forEach((pathEl) => {
         animations.push(
           anime({
             targets: pathEl,
