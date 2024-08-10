@@ -1,5 +1,4 @@
 ---
-import Button from "../components/Button.astro";
 import MainLayout from "../layouts/main.astro";
 import { Image } from "astro:assets";
 import logo from "../images/king.svg";
@@ -7,37 +6,37 @@ import logo from "../images/king.svg";
 
 <MainLayout title="King Development">
 	<div class="grid place-items-center h-screen content-center">
-		<Button>
-			<Image
-				src={logo}
-				alt="King Development Logo"
-				class="w-32 h-32 logo-svg"
-				loading="eager"
-			/>
-		</Button>
-		<h2
-			class="text-white text-opacity-20 tracking-widest uppercase text-xs font-extralight"
+		<Image
+			src={logo}
+			alt="King Development Logo"
+			class="w-32 h-32 logo-svg"
+			loading="eager"
+		/>
+		<h1
+			class="text-center text-white text-opacity-80 tracking-widest uppercase text-xs font-extralight"
 		>
-			Currently not accepting new clients
-		</h2>
+			Bespoke Application <br /> Design & Development
+		</h1>
 	</div>
 </MainLayout>
 
 <script>
-	import anime from "animejs";
+	import * as THREE from "three";
+	import FOG from "vanta/dist/vanta.fog.min";
 
 	document.addEventListener("DOMContentLoaded", () => {
-		anime({
-			targets: ".logo-svg",
-			scale: [0.8, 1.2],
-			easing: "easeInOutQuad",
-			duration: 2000,
-			strokeDashoffset: [anime.setDashoffset, 0],
+		FOG({
+			el: "#fog-container",
+			THREE: THREE,
+			minHeight: 100.0,
+			minWidth: 100.0,
+			highlightColor: 0xe616cd,
+			midtoneColor: 0xff,
+			lowlightColor: 0xffb3,
+			baseColor: 0x280000,
+			blurFactor: 0.5,
+			speed: 0.4,
+			zoom: 0.8,
 		});
 	});
-
-  import { app } from "../firebase/client";
-  import { getAnalytics } from "firebase/analytics";
-  getAnalytics(app);
-
 </script>
